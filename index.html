@@ -38,24 +38,80 @@
         </table>
     </div>
 
-    <div class="section">
-        <h2>三、关键发现</h2>
-        <h3>3.1 生存曲线分析</h3>
-        <p>通过Kaplan-Meier估计发现：</p>
+    <h2>风险因素解析</h2>
+    <table>
+        <tr>
+            <th>变量</th>
+            <th>风险比(HR)</th>
+            <th>系数变化</th>
+            <th>风险影响</th>
+            <th>显著性(-log2(p))</th>
+        </tr>
+        <tr>
+            <td>在线备份服务</td>
+            <td class="highlight">0.46</td>
+            <td>β=-0.78</td>
+            <td>风险降低54%</td>
+            <td>128.37★</td>
+        </tr>
+        <tr>
+            <td>技术支持服务</td>
+            <td class="highlight">0.53</td>
+            <td>β=-0.64</td>
+            <td>风险降低47%</td>
+            <td>55.36★</td>
+        </tr>
+        <tr>
+            <td>家属存在</td>
+            <td class="highlight">0.72</td>
+            <td>β=-0.33</td>
+            <td>风险降低28%</td>
+            <td>18.12★</td>
+        </tr>
+        <tr>
+            <td>DSL服务</td>
+            <td class="highlight">0.80</td>
+            <td>β=-0.22</td>
+            <td>风险降低20%</td>
+            <td>12.07★</td>
+        </tr>
+    </table>
+
+    <div class="stat-box">
+        <h2>关键业务洞见</h2>
+        <h3>服务价值量化</h3>
+        <p>在线备份服务（HR=0.46）和技术支持（HR=0.53）显示：</p>
         <ul>
-            <li>中位生存时间为<span class="highlight">34个月</span></li>
-            <li>DSL用户3个月留存率（83.5%）显著高于光纤用户</li>
-            <li>使用技术支持的客户12个月留存率提升27%</li>
+            <li>使用在线备份的客户留存率提升2.17倍</li>
+            <li>技术支持的客户生命周期延长89%</li>
         </ul>
 
-        <h3>3.2 风险因素建模（Cox模型）</h3>
-        <table>
-            <tr><th>风险因素</th><th>风险比</th><th>P值</th><th>影响</th></tr>
-            <tr><td>技术支持</td><td>0.53</td><td><0.001</td><td>风险降低47%</td></tr>
-            <tr><td>在线备份</td><td>0.46</td><td><0.001</td><td>风险降低54%</td></tr>
-            <tr><td>DSL服务</td><td>0.80</td><td>0.002</td><td>风险降低20%</td></tr>
-        </table>
+        <h3>运营优化建议</h3>
+        <ol>
+            <li>将在线备份设为默认服务，预计可减少31%的流失风险</li>
+            <li>对光纤用户（HR=1.25 vs DSL）实施差异化留存策略</li>
+            <li>建立家属客户专属服务通道（风险降低28%）</li>
+        </ol>
     </div>
+
+    <h2>模型诊断</h2>
+    <table>
+        <tr>
+            <th>指标</th>
+            <th>值</th>
+            <th>解释</th>
+        </tr>
+        <tr>
+            <td>PH假设检验</td>
+            <td>部分变量违反</td>
+            <td>建议对internet_service进行分层分析</td>
+        </tr>
+        <tr>
+            <td>残差分析</td>
+            <td>Schoenfeld残差可视化</td>
+            <td>显示DSL服务的时间效应变化</td>
+        </tr>
+    </table>
 
     <div class="section">
         <h2>四、财务影响</h2>
